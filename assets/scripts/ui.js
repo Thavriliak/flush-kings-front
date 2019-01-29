@@ -1,71 +1,49 @@
 const store = require('./store.js')
 
 const signUpSuccess = data => {
-  $('.alert').html('')
   $('#message').text('Signed up successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
   console.log('signUpSuccess ran. Data is :', data)
-  $('#signUpModal').modal('toggle')
   $('.authRequests').html('You\'ve successfully signed up!')
 }
 
 const signUpFailure = error => {
-  $('.alert').html('')
-  $('#message').text('Error on sign up')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
   console.error('signUpFailure ran. Error is :', error)
 }
 
 const signInSuccess = data => {
   store.user = data.user
-  $('.alert').html('')
   $('#message').text('Signed in successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('.before').hide()
+  $('.home').show()
+  $('.after').show()
+  $('.authSec').hide()
   console.log('signInSuccess ran. Data is :', data)
-  $('.buttModals').hide()
-  $('#signInModal').modal('toggle')
-  $('#cgPss').show()
-  $('#sgOut').show()
-  $('.dadBod').show()
-  $('#signUppp').hide()
-  $('.authRequests').html('You\'ve successfully signed in!')
-  $('.opening').show()
 }
 
 const signInFailure = error => {
-  $('.alert').html('')
-  $('#message').text('Error on sign in')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
   console.error('signInFailure ran. Error is :', error)
 }
 
 const changePasswordSuccess = data => {
-  $('.alert').html('')
   $('#message').text('Password changed successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
   console.log('changePasswordSuccess ran. Data is :', data)
-  $('#changePasswordModal').modal('toggle')
   $('.authRequests').html('You\'ve successfully changed your password!')
 }
 
 const changePasswordFailure = error => {
-  $('.alert').html('')
   $('#message').text('Error on password change')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
   console.error('changePasswordFailure ran. Error is :', error)
 }
 
 const signOutSuccess = data => {
-  $('.alert').html('')
   $('#message').text('Signed out successfully')
   store.user = null
   console.log('signOutSuccess ran. Data is :', data)
+  $('.after').hide()
+  $('.locations').hide()
+  $('.restrooms').hide()
+  $('.before').show()
+  $('.home').show()
 }
 
 const signOutFailure = error => {
@@ -136,7 +114,7 @@ const onNewLocationFailure = error => {
 
 const onAllLocationSuccess = data => {
   console.log(data)
-  $('#content').html('')
+  $('#contentLoc').html('')
   data.locations.forEach(locations => {
     const onePost = (`
       <h4>Name of Establishment: ${locations.area}</h4>

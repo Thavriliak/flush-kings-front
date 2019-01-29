@@ -1,8 +1,60 @@
 @import '~bootstrap/scss/bootstrap';
 
+$headFont: 'Major Mono Display', monospace;
+$paraFont: 'Rajdhani', sans-serif;
+$titleColor: #ff8c00;
+
 .titleClass {
-    font-size: 60px;
     text-align: center;
+    font-family: $headFont;
+    color: $titleColor;
+}
+
+span {
+    font-family: $headFont;
+    color: $titleColor;
+}
+
+.navBar {
+    padding: 40px;
+    text-align: center;
+}
+
+body {
+    background-color: #f5f5dc;
+}
+
+h1 {
+    font-size: 60px;
+    padding: 20px;
+}
+
+h3 {
+    font-family: $headFont;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 40px;
+}
+
+p {
+    font-family: $paraFont;
+    font-size: 20px;
+    padding: 40px;
+    text-align: center;
+}
+
+.btn {
+    font-size: 20px;
+    font-family: $headFont;
+}
+
+.authSec {
+    display: none;
+    font-family: $paraFont;
+}
+
+.after {
+    display: none;
 }
 
 #inform {
@@ -10,9 +62,24 @@
 }
 
 .restrooms {
-    display: none
+    display: none;
+    text-align: center;
+    font-family: $paraFont;
 }
 
 .locations {
-    display: none
+    display: none;
+    text-align: center;
+    font-family: $paraFont;
+}
+
+#message {
+    font-family: $paraFont;
+    color: $titleColor;
+}
+
+legend {
+    font-family: $headFont;
+    color: $titleColor;
+    font-size: 30px;
 }

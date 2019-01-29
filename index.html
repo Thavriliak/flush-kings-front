@@ -6,6 +6,7 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Rajdhani" rel="stylesheet">
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -17,19 +18,29 @@
           <h1>Providence Flush Kings</h1>
         </div>
         <div>
-          <nav>
-            <button type="button" class="signUp btn btn-light">Sign Up</button>
-            <button type="button" class="signIn btn btn-light">Sign In</button>
-            <button type="button" class="home btn btn-light">Home</button>
-            <button type="button" class="btn btn-light" id="signOut">Sign Out</button>
-            <button type="button" class="changePass btn btn-light">Change Password</button>
-            <button type="button" class="urLocs btn btn-light" id="signOut">Locations</button>
-            <button type="button" class="urPosts btn btn-light">Your Posts</button>
+          <nav class="navBar">
+            <button type="button" class="signUp before btn btn-light">Sign Up</button>
+            <button type="button" class="signIn before btn btn-light">Sign In</button>
+            <button type="button" class="goHome btn btn-light">Home</button>
+            <button type="button" class="urLocs after btn btn-light">Locations</button>
+            <button type="button" class="urPosts after btn btn-light">Your Posts</button>
+            <button type="button" class="btn after btn-light" id="signOut">Sign Out</button>
+            <button type="button" class="changePass after btn btn-light">Change Password</button>
           </nav>
         </div>
       </header>
-      <section class="authSec">
-        <div class="sgnin">
+      <section>
+        <div id="message"></div>
+        <div class="home">
+          <h3 class="pun">For the Anal-Retentive Restroom Visitor</h3>
+          <p>Its important to always feel comfortable and clean. For many, using the bathroom, especially
+            in a public area can be a struggle. But now, it doesnt have to be. With <span>Providence Flush Kings</span>,
+            you can keep track of everywhere you have used a public bathroom. You can review and log its 
+            credentials along with any notes you have of your experience. It's easy to start! Just sign up, 
+            sign in, and add a location, and create a new post designated to that location. Get started today!
+          </p>
+        </div>
+        <div class="sgnin authSec">
           <form id="sign-in" class="border">
             <fieldset>
               <legend>Sign in!</legend>
@@ -39,7 +50,7 @@
             </fieldset>
           </form>
         </div>
-        <div class="sgnup">
+        <div class="sgnup authSec">
           <form id="sign-up" class="border">
             <fieldset>
               <legend>Sign up</legend>
@@ -50,7 +61,7 @@
             </fieldset>
           </form>
         </div>
-        <div class="cp">
+        <div class="cp authSec">
           <form id="change-password" class="border">
             <fieldset>
               <legend>Change Password</legend>
@@ -61,6 +72,10 @@
           </form>
         </div>
         <div class="restrooms">
+          <p>Keep track of all your restroom experiences here. Note which bathrooms you loved and which ones
+            could use some work. Note what hours each establishment was open! Make sure you note you location
+            IDs when making a new post to keep everything orderly!
+          </p>
         <nav>
           <button type="button" class="btn btn-light" id="addOnePost">Add a New Post!</button>
           <button type="button" class="btn btn-light" id="getAllPosts">Look at Your Posts!</button>
@@ -68,6 +83,7 @@
         <div id="content"></div>
         <div id="inform">
           <h3>Add a Post!</h3>
+          <fieldset>
           <form class="addRestroom" id="restroom-create">
             <div class="form-group">
                 <input required type="number" name="restroom[location_id]" placeholder="Location Number"><br>
@@ -87,9 +103,9 @@
                 </div><br>
                 <input required type="text" name="restroom[hours]" placeholder="Hours Open"><br>
             </div>
-            <button type="submit" class="btn btn-light invent" id="insertProduct">Post Your Bathroom Review!!</button>
+            <button type="submit" class="btn btn-light invent" id="insertProd">Post Your Bathroom Review!!</button>
           </form>
-        </div>
+          </fieldset>
         <!-- Making a delete and an update button for a specific post -->
         <!-- <input class="button" name="delete" type="submit" value="Delete" style="margin-left:4%; margin-top:50px; width:15%"> -->
         <div class="delete">
@@ -116,12 +132,12 @@
               <input required type="number" name="restroom[number_of_toilets]" placeholder="How Many Toilets"><br>
               <p>Was this Restroom Handicapp Accessible?:</p>
               <div>
-                <input type="checkbox" id="handicap_true" name="restroom[handicap_accessible]" checked>
+                <input type="checkbox" id="handicap" name="restroom[handicap_accessible]" checked>
                 <label for="true">True</label>
               </div><br>
               <p>Was this Restroom Baby Care Friendly?:</p>
               <div>
-                <input type="checkbox" id="baby_care_true" name="restroom[baby_care]" checked>
+                <input type="checkbox" id="baby_care" name="restroom[baby_care]" checked>
                 <label for="true">True</label>
               </div><br>
               <input required type="text" name="restroom[hours]" placeholder="Hours Open"><br>
@@ -130,6 +146,7 @@
           </form>
         </div>
       </div>
+        </div>
         <div class="locations">
         <!-- <input class="button" name="update" type="button" value="Update" style="margin-left:4%; margin-top:20px; width:15%"> -->
           <button type="button" class="btn btn-light" id="addOneLoc">Add a New Location!</button>
@@ -141,11 +158,10 @@
             <div class="addLocAlert"></div>
             <form class="addLocation" id="location-create">
               <div class="form-group">
-                <input required type="text" name="location[name]" placeholder="Location Name"><br>
+                <input required type="text" name="location[area]" placeholder="Location Area"><br>
               </div>
               <button type="submit" class="btn btn-light invent" id="insertProduct">Post Your Location!</button>
             </form>
-          </div>
           <!-- Making a delete and an update button for a specific post -->
           <!-- <input class="button" name="delete" type="submit" value="Delete" style="margin-left:4%; margin-top:50px; width:15%"> -->
           <div class="deleteLoc">
@@ -158,7 +174,8 @@
               <button type="submit" class="btn btn-light invent" id="deleteLocs">Delete Location!</button>
             </form>
           </div>
-          </div>
-      </section>
-    </body>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
