@@ -89,6 +89,30 @@ const onDeleteLocation = event => {
     .catch(ui.onDeleteLocationFailure)
 }
 
+const onNewComment = event => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log("I'm in onNewComment and my current data is, " + JSON.stringify(data))
+  api.newCommentToApi(data)
+    .then(ui.onNewCommentSuccess)
+    .catch(ui.onNewCommentFailure)
+}
+
+const onAllComments = event => {
+  event.preventDefault()
+  api.getCommentsFromApi()
+    .then(ui.onAllCommentSuccess)
+    .catch(ui.onAllCommentFailure)
+}
+
+const onDeleteComment = event => {
+  event.preventDefault()
+  const data = $('#removeComment').val()
+  api.deleteCommentFromApi(data)
+    .then(ui.onDeleteCommentSuccess)
+    .catch(ui.onDeleteCommentFailure)
+}
+
 module.exports = {
   onSignIn,
   onChangePassword,
@@ -100,5 +124,8 @@ module.exports = {
   onEditPost,
   onNewLocation,
   onDeleteLocation,
-  onAllLocations
+  onAllLocations,
+  onNewComment,
+  onAllComments,
+  onDeleteComment
 }

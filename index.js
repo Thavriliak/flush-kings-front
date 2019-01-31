@@ -55,21 +55,26 @@ $('.urPosts').click(function () {
   $('.locations').hide()
   $('.home').hide()
   $('#message').hide()
-  $('#inform').hide()
-  $('#content').hide()
+  $('.rest').hide()
   $('.restrooms').show()
 })
 
 $('#addOnePost').click(function () {
   $('#content').hide()
-  $('#message').hide()
-  $('#inform').show()
+  $('.rest').hide()
+  $('.inform').show()
 })
 
 $('#getAllPosts').click(function () {
   $('#message').hide()
-  $('#inform').hide()
+  $('.rest').hide()
   $('#content').show()
+})
+
+$('#rateAPost').click(function () {
+  $('#message').hide()
+  $('.rest').hide()
+  $('.rating').show()
 })
 
 $('#addOneLoc').click(function () {
@@ -80,6 +85,6 @@ $('#addOneLoc').click(function () {
 
 $('#getAllLocs').click(function () {
   $('#message').hide()
-  $('#informLoc').hide()
+  $('.rest').hide()
   $('#contentLoc').show()
 })

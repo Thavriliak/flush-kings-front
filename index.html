@@ -23,7 +23,7 @@
             <button type="button" class="signIn before btn btn-light">Sign In</button>
             <button type="button" class="goHome btn btn-light">Home</button>
             <button type="button" class="urLocs after btn btn-light">Locations</button>
-            <button type="button" class="urPosts after btn btn-light">Your Posts</button>
+            <button type="button" class="urPosts after btn btn-light">Posts</button>
             <button type="button" class="btn after btn-light" id="signOut">Sign Out</button>
             <button type="button" class="changePass after btn btn-light">Change Password</button>
           </nav>
@@ -32,7 +32,7 @@
       <section>
         <div id="message"></div>
         <div class="home">
-          <h3 class="pun">For the Anal-Retentive Restroom Visitor</h3>
+          <h3 class="pun">For the Anal-Retentive Restroom Connoisseur</h3>
           <p>Its important to always feel comfortable and clean. For many, using the bathroom, especially
             in a public area can be a struggle. But now, it doesnt have to be. With <span>Providence Flush Kings</span>,
             you can keep track of everywhere you have used a public bathroom. You can review and log its 
@@ -78,10 +78,11 @@
           </p>
         <nav>
           <button type="button" class="btn btn-light" id="addOnePost">Add a New Post!</button>
-          <button type="button" class="btn btn-light" id="getAllPosts">Look at Your Posts!</button>
+          <button type="button" class="btn btn-light" id="getAllPosts">Find a Restroom!</button>
+          <button type="button" class="btn btn-light" id="rateAPost">Rate an Existing Restroom!</button>
         </nav>
-        <div id="content"></div>
-        <div id="inform">
+        <div class="rest" id="content"></div>
+        <div class="inform rest">
           <h3>Add a Post!</h3>
           <fieldset>
           <form class="addRestroom" id="restroom-create">
@@ -146,14 +147,36 @@
           </form>
         </div>
       </div>
+      <div class="rating rest">
+        <div class="addComm">
+        <form class="addComment">
+          <input required type="number" name="user_restroom[id]" placeholder="Restroom Post ID Number"><br>
+          <input required type="text" name="user_restroom[cleanliness]" placeholder="How Clean was it?"><br>
+          <input required type="text" name="user_restroom[smell]" placeholder="Smell of restroom"><br>
+          <button type="submit" class="btn btn-light invent" id="insertComment">Add Comment</button>
+        </form>
         </div>
+        <div class="deleteComm">
+        <h3>Delete a Comment</h3>
+        <form class="deleteComment" id="com-delete">
+          <div class="form-group">
+            <input required type="text" name="user_restroom[id]" placeholder="Comment ID" id="removeComment">
+          </div>
+          <button type="submit" class="btn btn-light invent" id="deleteComms">Delete Comment!</button>
+        </form>
+        </div>
+        <button type="button" class="btn btn-light" id="getAllComments">Look at all your comments!</button>
+        <div class="getAllComms"></div>
+      </div>
+
+    </div>
         <div class="locations">
         <!-- <input class="button" name="update" type="button" value="Update" style="margin-left:4%; margin-top:20px; width:15%"> -->
           <button type="button" class="btn btn-light" id="addOneLoc">Add a New Location!</button>
           <button type="button" class="btn btn-light" id="getAllLocs">Look at Your Locations!</button>
           </nav>
-          <div id="contentLoc"></div>
-          <div id="informLoc">
+          <div id="contentLoc loc"></div>
+          <div id="informLoc loc">
             <h3>Add a Location!</h3>
             <div class="addLocAlert"></div>
             <form class="addLocation" id="location-create">

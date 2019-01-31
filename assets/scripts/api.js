@@ -116,6 +116,39 @@ const deleteLocationFromApi = function (id) {
   })
 }
 
+const newCommentToApi = (data) => {
+  console.log('data sending to api is', data)
+  return $.ajax({
+    url: config.apiUrl + `/user_restrooms`,
+    method: 'POST',
+    data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getCommentsFromApi = function () {
+  // use AJAX to send request
+  return $.ajax({
+    url: config.apiUrl + '/user_restrooms',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const deleteCommentFromApi = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/user_restrooms/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signIn,
   signOut,
@@ -127,5 +160,8 @@ module.exports = {
   updatePostFromApi,
   newLocationToApi,
   deleteLocationFromApi,
-  getLocationsFromApi
+  getLocationsFromApi,
+  newCommentToApi,
+  deleteCommentFromApi,
+  getCommentsFromApi
 }

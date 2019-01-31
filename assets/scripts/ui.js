@@ -137,6 +137,43 @@ const onDeleteLocationFailure = error => {
   console.log(error)
 }
 
+const onNewCommentSuccess = data => {
+  console.log(data)
+  $('#product-create')[0].reset()
+}
+
+const onNewCommentFailure = error => {
+  console.log(error)
+}
+
+const onAllCommentSuccess = data => {
+  console.log(data)
+  $('#content').html('')
+  // eslint-disable-next-line camelcase
+  data.user_restrooms.forEach(user_restrooms => {
+    const onePost = (`
+      <p>Restroom Id: ${user_restrooms.restroom_id}</p>
+      <p>Cleanliness: ${user_restrooms.cleanliness}</p>
+      <p>Smell: ${user_restrooms.smell}</p>
+      <p>Comment ID: #${user_restrooms.id}</p>
+      <br>
+      `)
+    $('#getAllComms').append(onePost)
+  })
+}
+
+const onAllCommentFailure = error => {
+  console.log(error)
+}
+
+const onDeleteCommentSuccess = data => {
+  console.log(data)
+}
+
+const onDeleteCommentFailure = error => {
+  console.log(error)
+}
+
 module.exports = {
   signInFailure,
   signInSuccess,
@@ -159,5 +196,11 @@ module.exports = {
   onDeleteLocationSuccess,
   onDeleteLocationFailure,
   onNewProLocationSuccess,
-  onNewLocationFailure
+  onNewLocationFailure,
+  onNewCommentFailure,
+  onNewCommentSuccess,
+  onDeleteCommentFailure,
+  onDeleteCommentSuccess,
+  onAllCommentFailure,
+  onAllCommentSuccess
 }
