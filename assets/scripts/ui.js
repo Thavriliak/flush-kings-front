@@ -67,6 +67,10 @@ const onAllPostSuccess = data => {
   console.log(data)
   $('#content').html('')
   data.restrooms.forEach(restrooms => {
+    const reviews = restrooms.reviews.map(review => (`
+      <p>Cleanliness: ${review.cleanliness}</p>
+      <p>Smell: ${review.smell}</p>
+    `))
     const onePost = (`
       <h4>Name of Establishment: ${restrooms.name_of_establishment}</h4>
       <p>Location Id: ${restrooms.location_id}</p>
@@ -77,6 +81,7 @@ const onAllPostSuccess = data => {
       <p>Baby Care Friendly?: ${restrooms.baby_care}</p>
       <p>Hours Open: ${restrooms.hours}</p>
       <p>Post ID: #${restrooms.id}</p>
+      <p>Reviews: ${reviews}
       <br>
       `)
     $('#content').append(onePost)
@@ -150,12 +155,12 @@ const onAllCommentSuccess = data => {
   console.log(data)
   $('#content').html('')
   // eslint-disable-next-line camelcase
-  data.user_restrooms.forEach(user_restrooms => {
+  data.reviews.forEach(reviews => {
     const onePost = (`
-      <p>Restroom Id: ${user_restrooms.restroom_id}</p>
-      <p>Cleanliness: ${user_restrooms.cleanliness}</p>
-      <p>Smell: ${user_restrooms.smell}</p>
-      <p>Comment ID: #${user_restrooms.id}</p>
+      <p>Restroom Id: ${reviews.restroom_id}</p>
+      <p>Cleanliness: ${reviews.cleanliness}</p>
+      <p>Smell: ${reviews.smell}</p>
+      <p>Comment ID: #${reviews.id}</p>
       <br>
       `)
     $('#getAllComms').append(onePost)

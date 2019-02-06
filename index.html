@@ -150,17 +150,17 @@
       <div class="rating rest">
         <div class="addComm">
         <form class="addComment">
-          <input required type="number" name="user_restroom[id]" placeholder="Restroom Post ID Number"><br>
-          <input required type="text" name="user_restroom[cleanliness]" placeholder="How Clean was it?"><br>
-          <input required type="text" name="user_restroom[smell]" placeholder="Smell of restroom"><br>
-          <button type="submit" class="btn btn-light invent" id="insertComment">Add Comment</button>
+          <input required type="number" name="review[restroom_id]" placeholder="Restroom Post ID Number"><br>
+          <input required type="text" name="review[cleanliness]" placeholder="How Clean was it?"><br>
+          <input required type="text" name="review[smell]" placeholder="Smell of restroom"><br>
+          <button type="submit" class="btn btn-light invent" id="insertComment">Add Review</button>
         </form>
         </div>
         <div class="deleteComm">
         <h3>Delete a Comment</h3>
         <form class="deleteComment" id="com-delete">
           <div class="form-group">
-            <input required type="text" name="user_restroom[id]" placeholder="Comment ID" id="removeComment">
+            <input required type="text" name="review[id]" placeholder="Comment ID" id="removeComment">
           </div>
           <button type="submit" class="btn btn-light invent" id="deleteComms">Delete Comment!</button>
         </form>
@@ -187,7 +187,7 @@
             </form>
           <!-- Making a delete and an update button for a specific post -->
           <!-- <input class="button" name="delete" type="submit" value="Delete" style="margin-left:4%; margin-top:50px; width:15%"> -->
-          <div class="deleteLoc">
+          <div class="deleteLoc loc">
             <h3>Delete A Location</h3>
             <div class='deleteOneL alert'></div>
             <form class="deleteLoc" id="loc-delete">

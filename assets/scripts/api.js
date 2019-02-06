@@ -119,7 +119,7 @@ const deleteLocationFromApi = function (id) {
 const newCommentToApi = (data) => {
   console.log('data sending to api is', data)
   return $.ajax({
-    url: config.apiUrl + `/user_restrooms`,
+    url: config.apiUrl + `/reviews`,
     method: 'POST',
     data,
     headers: {
@@ -131,7 +131,7 @@ const newCommentToApi = (data) => {
 const getCommentsFromApi = function () {
   // use AJAX to send request
   return $.ajax({
-    url: config.apiUrl + '/user_restrooms',
+    url: config.apiUrl + '/reviews',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -141,7 +141,7 @@ const getCommentsFromApi = function () {
 
 const deleteCommentFromApi = function (id) {
   return $.ajax({
-    url: config.apiUrl + '/user_restrooms/' + id,
+    url: config.apiUrl + '/reviews/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token

@@ -44,8 +44,8 @@ $('.urLocs').click(function () {
   $('.authSec').hide()
   $('.restrooms').hide()
   $('.home').hide()
-  $('#informLoc').hide()
   $('#contentLoc').hide()
+  $('#informLoc').hide()
   $('#message').hide()
   $('.locations').show()
 })
@@ -86,5 +86,6 @@ $('#addOneLoc').click(function () {
 $('#getAllLocs').click(function () {
   $('#message').hide()
   $('.rest').hide()
+  $('#informLoc').hide()
   $('#contentLoc').show()
 })
