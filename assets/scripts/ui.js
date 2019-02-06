@@ -151,26 +151,6 @@ const onNewCommentFailure = error => {
   console.log(error)
 }
 
-const onAllCommentSuccess = data => {
-  console.log(data)
-  $('#content').html('')
-  // eslint-disable-next-line camelcase
-  data.reviews.forEach(reviews => {
-    const onePost = (`
-      <p>Restroom Id: ${reviews.restroom_id}</p>
-      <p>Cleanliness: ${reviews.cleanliness}</p>
-      <p>Smell: ${reviews.smell}</p>
-      <p>Comment ID: #${reviews.id}</p>
-      <br>
-      `)
-    $('#getAllComms').append(onePost)
-  })
-}
-
-const onAllCommentFailure = error => {
-  console.log(error)
-}
-
 const onDeleteCommentSuccess = data => {
   console.log(data)
 }
@@ -205,7 +185,5 @@ module.exports = {
   onNewCommentFailure,
   onNewCommentSuccess,
   onDeleteCommentFailure,
-  onDeleteCommentSuccess,
-  onAllCommentFailure,
-  onAllCommentSuccess
+  onDeleteCommentSuccess
 }

@@ -73,6 +73,14 @@ p {
     font-family: $paraFont;
 }
 
+#informLoc {
+    display: none;
+}
+
+#contentLoc {
+    display: none;
+}
+
 #message {
     font-family: $paraFont;
     color: $titleColor;

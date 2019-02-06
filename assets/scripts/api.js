@@ -128,16 +128,16 @@ const newCommentToApi = (data) => {
   })
 }
 
-const getCommentsFromApi = function () {
-  // use AJAX to send request
-  return $.ajax({
-    url: config.apiUrl + '/reviews',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
+// const getCommentsFromApi = function () {
+//   // use AJAX to send request
+//   return $.ajax({
+//     url: config.apiUrl + '/reviews',
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
 
 const deleteCommentFromApi = function (id) {
   return $.ajax({
@@ -162,6 +162,6 @@ module.exports = {
   deleteLocationFromApi,
   getLocationsFromApi,
   newCommentToApi,
-  deleteCommentFromApi,
-  getCommentsFromApi
+  deleteCommentFromApi
+  // getCommentsFromApi
 }

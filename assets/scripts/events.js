@@ -98,12 +98,12 @@ const onNewComment = event => {
     .catch(ui.onNewCommentFailure)
 }
 
-const onAllComments = event => {
-  event.preventDefault()
-  api.getCommentsFromApi()
-    .then(ui.onAllCommentSuccess)
-    .catch(ui.onAllCommentFailure)
-}
+// const onAllComments = event => {
+//   event.preventDefault()
+//   api.getCommentsFromApi()
+//     .then(ui.onAllCommentSuccess)
+//     .catch(ui.onAllCommentFailure)
+// }
 
 const onDeleteComment = event => {
   event.preventDefault()
@@ -126,6 +126,6 @@ module.exports = {
   onDeleteLocation,
   onAllLocations,
   onNewComment,
-  onAllComments,
+  // onAllComments,
   onDeleteComment
 }
