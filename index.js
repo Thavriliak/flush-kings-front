@@ -36,6 +36,7 @@ $('.signIn').click(function () {
 
 $('.changePass').click(function () {
   $('.authSec').hide()
+  $('.bod').hide()
   $('.home').hide()
   $('.cp').show()
 })
@@ -44,8 +45,8 @@ $('.urLocs').click(function () {
   $('.authSec').hide()
   $('.restrooms').hide()
   $('.home').hide()
-  $('#contentLoc').hide()
-  $('#informLoc').hide()
+  $('.contentLoc').hide()
+  $('.informLoc').hide()
   $('#message').hide()
   $('.locations').show()
 })
@@ -78,14 +79,14 @@ $('#rateAPost').click(function () {
 })
 
 $('#addOneLoc').click(function () {
-  $('#contentLoc').hide()
+  $('.contentLoc').hide()
   $('#message').hide()
-  $('#informLoc').show()
+  $('.informLoc').show()
 })
 
 $('#getAllLocs').click(function () {
   $('#message').hide()
   $('.rest').hide()
-  $('#informLoc').hide()
-  $('#contentLoc').show()
+  $('.informLoc').hide()
+  $('.contentLoc').show()
 })

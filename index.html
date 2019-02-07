@@ -30,7 +30,7 @@
         </div>
       </header>
       <section>
-        <div id="message"></div>
+        <div class="mess" id="message"></div>
         <div class="home">
           <h3 class="pun">For the Anal-Retentive Restroom Connoisseur</h3>
           <p>Its important to always feel comfortable and clean. For many, using the bathroom, especially
@@ -71,7 +71,7 @@
             </fieldset>
           </form>
         </div>
-        <div class="restrooms">
+        <div class="restrooms bod">
           <p>Keep track of all your restroom experiences here. Note which bathrooms you loved and which ones
             could use some work. Note what hours each establishment was open! Make sure you note you location
             IDs when making a new post to keep everything orderly!
@@ -81,6 +81,7 @@
           <button type="button" class="btn btn-light" id="getAllPosts">Find a Restroom!</button>
           <button type="button" class="btn btn-light" id="rateAPost">Rate an Existing Restroom!</button>
         </nav>
+        <div class="allMess mess"></div>
         <div class="rest" id="content"></div>
         <div class="inform rest">
           <h3>Add a Post!</h3>
@@ -106,6 +107,7 @@
             </div>
             <button type="submit" class="btn btn-light invent" id="insertProd">Post Your Bathroom Review!!</button>
           </form>
+          <div class="addMess mess"></div>
           </fieldset>
         <!-- Making a delete and an update button for a specific post -->
         <!-- <input class="button" name="delete" type="submit" value="Delete" style="margin-left:4%; margin-top:50px; width:15%"> -->
@@ -118,6 +120,7 @@
             </div>
             <button type="submit" class="btn btn-light invent" id="deletePosts">Delete Post!</button>
           </form>
+          <div class="delMess mess"></div>
         </div>
         <br>
         <div class="patch bullet">
@@ -145,9 +148,10 @@
             </div>
             <button type="submit" class="btn btn-light invent" id="editProduct">Edit Product in Inventory!</button>
           </form>
+          <div class="updateMess mess"></div>
         </div>
       </div>
-      <div class="rating rest">
+      <div class="rating bod rest">
         <div class="addComm">
         <form class="addComment">
           <input required type="number" name="review[restroom_id]" placeholder="Restroom Post ID Number"><br>
@@ -155,6 +159,7 @@
           <input required type="text" name="review[smell]" placeholder="Smell of restroom"><br>
           <button type="submit" class="btn btn-light invent" id="insertComment">Add Review</button>
         </form>
+        <div class="addComMess mess"></div>
         </div>
         <div class="deleteComm">
         <h3>Delete a Comment</h3>
@@ -164,17 +169,18 @@
           </div>
           <button type="submit" class="btn btn-light invent" id="deleteComms">Delete Comment!</button>
         </form>
+        <div class="delComMess mess"></div>
         </div>
       </div>
 
     </div>
-        <div class="locations">
+        <div class="locations bod">
         <!-- <input class="button" name="update" type="button" value="Update" style="margin-left:4%; margin-top:20px; width:15%"> -->
           <button type="button" class="btn btn-light" id="addOneLoc">Add a New Location!</button>
           <button type="button" class="btn btn-light" id="getAllLocs">Look at Your Locations!</button>
           </nav>
-          <div id="contentLoc loc"></div>
-          <div id="informLoc loc">
+          <div class="contentLoc loc"></div>
+          <div class="informLoc loc">
             <h3>Add a Location!</h3>
             <div class="addLocAlert"></div>
             <form class="addLocation" id="location-create">
@@ -183,6 +189,7 @@
               </div>
               <button type="submit" class="btn btn-light invent" id="insertProduct">Post Your Location!</button>
             </form>
+            <div class="addLocMess mess"></div>
           <!-- Making a delete and an update button for a specific post -->
           <!-- <input class="button" name="delete" type="submit" value="Delete" style="margin-left:4%; margin-top:50px; width:15%"> -->
           <div class="deleteLoc loc">
@@ -194,6 +201,7 @@
               </div>
               <button type="submit" class="btn btn-light invent" id="deleteLocs">Delete Location!</button>
             </form>
+            <div class="delLocMess mess"></div>
           </div>
         </div>
       </div>

@@ -4,10 +4,13 @@ const signUpSuccess = data => {
   $('#message').text('Signed up successfully')
   console.log('signUpSuccess ran. Data is :', data)
   $('.authRequests').html('You\'ve successfully signed up!')
+  $('#sign-up')[0].reset()
 }
 
 const signUpFailure = error => {
+  $('#message').text('You have had an issue with signing up!')
   console.error('signUpFailure ran. Error is :', error)
+  $('#sign-up')[0].reset()
 }
 
 const signInSuccess = data => {
@@ -18,21 +21,26 @@ const signInSuccess = data => {
   $('.after').show()
   $('.authSec').hide()
   console.log('signInSuccess ran. Data is :', data)
+  $('#sign-in')[0].reset()
 }
 
 const signInFailure = error => {
+  $('#message').text('You have had an issue with signing in!')
   console.error('signInFailure ran. Error is :', error)
+  $('#sign-in')[0].reset()
 }
 
 const changePasswordSuccess = data => {
   $('#message').text('Password changed successfully')
   console.log('changePasswordSuccess ran. Data is :', data)
   $('.authRequests').html('You\'ve successfully changed your password!')
+  $('#change-password')[0].reset()
 }
 
 const changePasswordFailure = error => {
   $('#message').text('Error on password change')
   console.error('changePasswordFailure ran. Error is :', error)
+  $('#change-password')[0].reset()
 }
 
 const signOutSuccess = data => {
@@ -54,13 +62,16 @@ const signOutFailure = error => {
   console.error('signOutFailure ran. Error is :', error)
 }
 
-const onNewProductSuccess = data => {
+const onNewPostSuccess = data => {
+  $('.addMess').text('You have posted a restroom!')
   console.log(data)
-  $('#product-create')[0].reset()
+  $('#restroom-create')[0].reset()
 }
 
-const onNewProductFailure = error => {
+const onNewPostFailure = error => {
+  $('.addMess').text('You encountered a problem with posting a restroom!')
   console.log(error)
+  $('#restroom-create')[0].reset()
 }
 
 const onAllPostSuccess = data => {
@@ -89,74 +100,98 @@ const onAllPostSuccess = data => {
 }
 
 const onAllPostFailure = error => {
+  $('.allMess').text('There was an issue getting all posts!')
   console.log(error)
 }
 
 const onUpdatePostSuccess = data => {
+  $('.updateMess').text('You have successfully updated a post!')
   console.log(data)
+  $('#post-update')[0].reset()
 }
 
 const onUpdatePostFailure = error => {
+  $('.updateMess').text('There was an issue updating your post!')
   console.log(error)
+  $('#post-update')[0].reset()
 }
 
 const onDeletePostSuccess = data => {
+  $('.delMess').text('You have successfully deleted a post!')
   console.log(data)
+  $('#post-delete')[0].reset()
 }
 
 const onDeletePostFailure = error => {
+  $('.delMess').text('You have run into an error deleted a post!')
   console.log(error)
+  $('#post-delete')[0].reset()
 }
 
-const onNewProLocationSuccess = data => {
+const onNewLocationSuccess = data => {
+  $('.addLocMess').text('You have posted a location!')
   console.log(data)
-  $('#product-create')[0].reset()
+  $('#location-create')[0].reset()
 }
 
 const onNewLocationFailure = error => {
+  $('.addLocMess').text('You have hit an error posting a restroom!')
   console.log(error)
+  $('#location-create')[0].reset()
 }
 
 const onAllLocationSuccess = data => {
   console.log(data)
-  $('#contentLoc').html('')
+  $('.contentLoc').html('')
   data.locations.forEach(locations => {
     const onePost = (`
       <h4>Name of Establishment: ${locations.area}</h4>
       <p>Location Id: ${locations.id}</p>
       <br>
       `)
-    $('#contentLoc').append(onePost)
+    $('.contentLoc').append(onePost)
   })
 }
 
 const onAllLocationFailure = error => {
+  $('.addLocMess').text('You have hit an error getting all locations!')
   console.log(error)
 }
 
 const onDeleteLocationSuccess = data => {
+  $('.delLocMess').text('You have deleted a location!')
   console.log(data)
+  $('#loc-delete')[0].reset()
 }
 
 const onDeleteLocationFailure = error => {
+  $('.delLocMess').text('You have hit an error deleting a location!')
   console.log(error)
+  $('#loc-delete')[0].reset()
 }
 
 const onNewCommentSuccess = data => {
+  $('.addComMess').text('You have successfully added a review!')
   console.log(data)
-  $('#product-create')[0].reset()
+  $('.addComment')[0].reset()
 }
 
 const onNewCommentFailure = error => {
+  $('.addComMess').text('You have hit an error adding a review!')
   console.log(error)
+  $('.addComment')[0].reset()
 }
 
 const onDeleteCommentSuccess = data => {
+  $('.delComMess').text('You have successfully deleted a review!')
   console.log(data)
+  $('.deleteComment')[0].reset()
 }
 
 const onDeleteCommentFailure = error => {
+  $('.delComMess').text('You have hit an error deleting your review!')
   console.log(error)
+  $('.deleteComment')[0].reset()
 }
 
 module.exports = {
@@ -168,8 +203,8 @@ module.exports = {
   changePasswordSuccess,
   signUpFailure,
   signUpSuccess,
-  onNewProductSuccess,
-  onNewProductFailure,
+  onNewPostSuccess,
+  onNewPostFailure,
   onAllPostSuccess,
   onAllPostFailure,
   onUpdatePostFailure,
@@ -180,7 +215,7 @@ module.exports = {
   onAllLocationSuccess,
   onDeleteLocationSuccess,
   onDeleteLocationFailure,
-  onNewProLocationSuccess,
+  onNewLocationSuccess,
   onNewLocationFailure,
   onNewCommentFailure,
   onNewCommentSuccess,
