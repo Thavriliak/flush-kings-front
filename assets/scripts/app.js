@@ -11,7 +11,7 @@ $(() => {
   $('#sign-up').on('submit', events.onSignUp)
   $('#sign-in').on('submit', events.onSignIn)
   $('#change-password').on('submit', events.onChangePassword)
-  $('signOut').on('click', events.onSignOut)
+  $('#signOut').on('click', events.onSignOut)
   $('.addRestroom').on('submit', events.onNewPost)
   $('#getAllPosts').on('click', events.onAllPosts)
   $('.editPost').on('submit', events.onEditPost)
@@ -22,3 +22,4 @@ $(() => {
   $('.addComment').on('submit', events.onNewComment)
   $('.deleteComment').on('submit', events.onDeleteComment)
 })
+ 
