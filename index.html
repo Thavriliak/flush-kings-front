@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Providence Flush Kings</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Rajdhani" rel="stylesheet">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <header>
+        <div class="titleClass">
+          <h1>Providence Flush Kings</h1>
+        </div>
+        <div>
+          <nav class="navBar">
+            <button type="button" class="signUp before btn btn-light">Sign Up</button>
+            <button type="button" class="signIn before btn btn-light">Sign In</button>
+            <button type="button" class="goHome btn btn-light">Home</button>
+            <button type="button" class="urLocs after btn btn-light">Locations</button>
+            <button type="button" class="urPosts after btn btn-light">Posts</button>
+            <button type="button" class="btn after btn-light" id="signOut">Sign Out</button>
+            <button type="button" class="changePass after btn btn-light">Change Password</button>
+          </nav>
+        </div>
+      </header>
+      <section>
+        <div class="mess" id="message"></div>
+        <div class="home">
+          <h3 class="pun">For the Anal-Retentive Restroom Connoisseur</h3>
+          <p>Its important to always feel comfortable and clean. For many, using the bathroom, especially
+            in a public area can be a struggle. But now, it doesnt have to be. With <span>Providence Flush Kings</span>,
+            you can keep track of everywhere you have used a public bathroom. You can review and log its 
+            credentials along with any notes you have of your experience. It's easy to start! Just sign up, 
+            sign in, and add a location, and create a new post designated to that location. Get started today!
+          </p>
+        </div>
+        <div class="sgnin authSec">
+          <form id="sign-in" class="border">
+            <fieldset>
+              <legend>Sign in!</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="submit" value="Sign in!">
+            </fieldset>
+          </form>
+        </div>
+        <div class="sgnup authSec">
+          <form id="sign-up" class="border">
+            <fieldset>
+              <legend>Sign up</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <input type="submit" value="Sign up!">
+            </fieldset>
+          </form>
+        </div>
+        <div class="cp authSec">
+          <form id="change-password" class="border">
+            <fieldset>
+              <legend>Change Password</legend>
+              <input type="password" name="passwords[old]" placeholder="Old Password">
+              <input type="password" name="passwords[new]" placeholder="New Password">
+              <input type="submit" value="Change Password!">
+            </fieldset>
+          </form>
+        </div>
+        <div class="restrooms bod">
+          <p>Keep track of all your restroom experiences here. Note which bathrooms you loved and which ones
+            could use some work. Note what hours each establishment was open! Make sure you note you location
+            IDs when making a new post to keep everything orderly!
+          </p>
+        <nav>
+          <button type="button" class="btn btn-light" id="addOnePost">Add a New Post!</button>
+          <button type="button" class="btn btn-light" id="getAllPosts">Find a Restroom!</button>
+          <button type="button" class="btn btn-light" id="rateAPost">Rate an Existing Restroom!</button>
+        </nav>
+        <div class="allMess mess"></div>
+        <div class="rest" id="content"></div>
+        <div class="inform rest">
+          <h3>Add a Post!</h3>
+          <fieldset>
+          <form class="addRestroom" id="restroom-create">
+            <div class="form-group">
+                <input required type="number" name="restroom[location_id]" placeholder="Location Number"><br>
+                <input required type="text" name="restroom[name_of_establishment]" placeholder="Name of Establishment"><br>
+                <input required type="text" name="restroom[cleanliness]" placeholder="How Clean was it?"><br>
+                <input required type="text" name="restroom[smell]" placeholder="Smell of restroom"><br>
+                <input required type="number" name="restroom[number_of_toilets]" placeholder="How Many Toilets"><br>
+                <p>Was this Restroom Handicapp Accessible?:</p>
+                <div>
+                  <input type="checkbox" id="handicap_true" name="restroom[handicap_accessible]" checked>
+                    <label for="true">True</label>
+                </div><br>
+                  <p>Was this Restroom Baby Care Friendly?:</p>
+                <div>
+                  <input type="checkbox" id="baby_care_true" name="restroom[baby_care]" checked>
+                  <label for="true">True</label>
+                </div><br>
+                <input required type="text" name="restroom[hours]" placeholder="Hours Open"><br>
+            </div>
+            <button type="submit" class="btn btn-light invent" id="insertProd">Post Your Bathroom Review!!</button>
+          </form>
+          <div class="addMess mess"></div>
+          </fieldset>
+        <!-- Making a delete and an update button for a specific post -->
+        <!-- <input class="button" name="delete" type="submit" value="Delete" style="margin-left:4%; margin-top:50px; width:15%"> -->
+        <div class="delete">
+          <h3>Delete A Post</h3>
+          <div class='deleteOneP alert'></div>
+          <form class="deletePost" id="post-delete">
+            <div class="form-group">
+              <input required type="text" name="restroom[id]" placeholder="Post Number" id="deleteIt">
+            </div>
+            <button type="submit" class="btn btn-light invent" id="deletePosts">Delete Post!</button>
+          </form>
+          <div class="delMess mess"></div>
+        </div>
+        <br>
+        <div class="patch bullet">
+          <h3>Edit a Post</h3>
+          <div class='editOneP alert'></div>
+          <form class="editPost" id="post-update">
+            <div class="form-group">
+              <input required type="number" name="restroom[id]" placeholder="Post ID Number"><br>
+              <input required type="number" name="restroom[location_id]" placeholder="Location Number"><br>
+              <input required type="text" name="restroom[name_of_establishment]" placeholder="Name of Establishment"><br>
+              <input required type="text" name="restroom[cleanliness]" placeholder="How Clean was it?"><br>
+              <input required type="text" name="restroom[smell]" placeholder="Smell of restroom"><br>
+              <input required type="number" name="restroom[number_of_toilets]" placeholder="How Many Toilets"><br>
+              <p>Was this Restroom Handicapp Accessible?:</p>
+              <div>
+                <input type="checkbox" id="handicap" name="restroom[handicap_accessible]" checked>
+                <label for="true">True</label>
+              </div><br>
+              <p>Was this Restroom Baby Care Friendly?:</p>
+              <div>
+                <input type="checkbox" id="baby_care" name="restroom[baby_care]" checked>
+                <label for="true">True</label>
+              </div><br>
+              <input required type="text" name="restroom[hours]" placeholder="Hours Open"><br>
+            </div>
+            <button type="submit" class="btn btn-light invent" id="editProduct">Edit Product in Inventory!</button>
+          </form>
+          <div class="updateMess mess"></div>
+        </div>
+      </div>
+      <div class="rating bod rest">
+        <div class="addComm">
+        <form class="addComment">
+          <input required type="number" name="review[restroom_id]" placeholder="Restroom Post ID Number"><br>
+          <input required type="text" name="review[cleanliness]" placeholder="How Clean was it?"><br>
+          <input required type="text" name="review[smell]" placeholder="Smell of restroom"><br>
+          <button type="submit" class="btn btn-light invent" id="insertComment">Add Review</button>
+        </form>
+        <div class="addComMess mess"></div>
+        </div>
+        <div class="deleteComm">
+        <h3>Delete a Comment</h3>
+        <form class="deleteComment" id="com-delete">
+          <div class="form-group">
+            <input required type="text" name="review[id]" placeholder="Comment ID" id="removeComment">
+          </div>
+          <button type="submit" class="btn btn-light invent" id="deleteComms">Delete Comment!</button>
+        </form>
+        <div class="delComMess mess"></div>
+        </div>
+      </div>
+
+    </div>
+        <div class="locations bod">
+        <!-- <input class="button" name="update" type="button" value="Update" style="margin-left:4%; margin-top:20px; width:15%"> -->
+          <button type="button" class="btn btn-light" id="addOneLoc">Add a New Location!</button>
+          <button type="button" class="btn btn-light" id="getAllLocs">Look at Your Locations!</button>
+          </nav>
+          <div class="contentLoc loc"></div>
+          <div class="informLoc loc">
+            <h3>Add a Location!</h3>
+            <div class="addLocAlert"></div>
+            <form class="addLocation" id="location-create">
+              <div class="form-group">
+                <input required type="text" name="location[area]" placeholder="Location Area"><br>
+              </div>
+              <button type="submit" class="btn btn-light invent" id="insertProduct">Post Your Location!</button>
+            </form>
+            <div class="addLocMess mess"></div>
+          <!-- Making a delete and an update button for a specific post -->
+          <!-- <input class="button" name="delete" type="submit" value="Delete" style="margin-left:4%; margin-top:50px; width:15%"> -->
+          <div class="deleteLoc loc">
+            <h3>Delete A Location</h3>
+            <div class='deleteOneL alert'></div>
+            <form class="deleteLoc" id="loc-delete">
+              <div class="form-group">
+                <input required type="text" name="location[id]" placeholder="Location ID" id="deleteLoc">
+              </div>
+              <button type="submit" class="btn btn-light invent" id="deleteLocs">Delete Location!</button>
+            </form>
+            <div class="delLocMess mess"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
